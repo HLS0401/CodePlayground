@@ -1,0 +1,52 @@
+{{extend '../common/layout.art'}} 
+
+{{block 'title'}}
+<title>首页</title>
+{{/block}}
+
+{{block 'csslink'}}
+<link rel="stylesheet" href="./css/quiz_layout_base.css">
+<link rel="stylesheet" href="./css/quiz_index.css">
+{{/block}}
+
+
+{{block 'main'}}
+<div class="index_wrap">
+    <div class="container-fluid index_container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <a href="javascript:;" class="quiz_btn" id="quiz_btn">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-7 textbox">
+                                        <p>开始答题</p>
+                                        <p class="small">从不同领域中随机抽取题目</p>
+                                    </div>
+                                    <div class="col-sm-5"><img src="https://storage.googleapis.com/stateless-d2c-io//2019/06/i2-1.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/ranklist" class="ranklist_btn">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-7 textbox">
+                                        <p>排行榜</p>
+                                        <p class="small">分数排名，记录了答题人的分数和用时</p>
+                                    </div>
+                                    <div class="col-sm-5"><img src="https://storage.googleapis.com/stateless-d2c-io//2019/06/i3-1.svg" alt=""></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}
+
+{{block 'script'}}
+<script src="./js/quiz_index.js"></script>
+{{/block}}

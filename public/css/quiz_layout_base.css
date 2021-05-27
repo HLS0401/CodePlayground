@@ -1,0 +1,73 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.quiz_wrap {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* background: url('../image/QQ图片20210520184937.png') no-repeat;
+    background-size: cover; */
+}
+
+.quiz_page {
+    padding-top: 50px;
+    display: none;
+    height: 100%;
+    width: 100%;
+    /* overflow: hidden; */
+    opacity: 0;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.page_first {
+    display: block;
+    opacity: 1;
+}
+
+.modal-dialog {
+    width: 300px;
+    margin-top: 33vh;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 10px 15px;
+}
+
+.modal-header>button {
+    margin-top: 0;
+    font-size: 26px;
+}
+
+.right-side-bar {
+    float: right;
+}
+
+.right-side-bar,
+.left-side-bar {
+    height: 919px;
+}
+
+.quiz_timer .modal-body>span {
+    font-size: 27px;
+    line-height: 50px;
+}
+
+.quiz_timer .modal-body {
+    height: 80px;
+}
+
+.quiz_timer .modal-body {
+    text-align: center;
+}
+
+.quiz_timer .modal-header,
+.quiz_timer .modal-body {
+    width: 190px;
+}
+
+.quiz_timer .modal-content {
+    width: 192px;
+}

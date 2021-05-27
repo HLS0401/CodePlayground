@@ -1,0 +1,12 @@
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="javascript:;">问答试卷系统</a>
+                <a class="navbar-brand" href="/">
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;<span>首页</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>

@@ -1,0 +1,18 @@
+.quiz_counter .quiz_submit_btn {
+    position: absolute;
+    top: 133px;
+    left: 163px;
+    height: 30px;
+    width: 71px;
+    line-height: 18px;
+    font-size: 15px;
+    background-color: rgb(65, 144, 212);
+}
+
+.quiz_counter .quiz_counter_btn {
+    margin: 4px 3px;
+    padding: 5px 7px;
+    width: 31px;
+    background-color: rgb(253, 253, 253);
+    box-shadow: none;
+}

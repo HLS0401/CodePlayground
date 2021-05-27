@@ -1,0 +1,68 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+ul li {
+    list-style: none;
+}
+
+.ranklist_wrap {
+    padding-top: 51px;
+    height: 100%;
+}
+
+.ranklist_wrap .row {
+    height: 100%;
+}
+
+.ranklist_drop {
+    height: 100%;
+}
+
+.ranklist_head {
+    height: 25%;
+    padding: 5%;
+}
+
+.ranklist_head ul {
+    padding: 0;
+    height: 100%;
+}
+
+.ranklist_head ul li {
+    height: 33%;
+    line-height: 45px;
+    vertical-align: middle;
+}
+
+.ranklist_head ul li span {
+    margin: 0 20px;
+    vertical-align: middle;
+}
+
+.ranklist_head ul li span:first-child {
+    font-size: 35px;
+}
+
+.champion {
+    padding-left: 14%;
+}
+
+.runner_up {
+    padding-left: 24%;
+}
+
+.third_place {
+    padding-left: 34%;
+}
+
+.ranklist_body {
+    height: 75%;
+}
+
+.ranklist_body .table td,
+.ranklist_body .table th {
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+div[class*=right-side-bar] span[class*=glyphicon],
+div[class*=left-side-bar] span[class*=glyphicon] {
+    display: block;
+    position: absolute;
+    font-size: 80px;
+    color: rgba(212, 212, 212, .5);
+}
+
+div[class*=right-side-bar] span[class*=glyphicon] {
+    top: 45%;
+    right: 10px;
+}
+
+div[class*=left-side-bar] span[class*=glyphicon] {
+    top: 45%;
+    left: 10px;
+}

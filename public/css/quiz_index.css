@@ -1,0 +1,64 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.index_wrap {
+    padding-top: 51px;
+    height: 100%;
+    width: 100%;
+    background: url('https://storage.googleapis.com/stateless-d2c-io/2019/06/c4d02567-web-1920-%E2%80%93-13.jpg') no-repeat;
+    /* '../image/c4d02567-web-1920-–-13.jpg'  */
+    background-position: top right;
+}
+
+.index_container {
+    padding-top: 12%;
+    height: 100%;
+}
+
+.index_container .col-sm-4 {
+    padding: 0;
+}
+
+.quiz_btn,
+.ranklist_btn {
+    margin-bottom: 10%;
+    padding: 5%;
+    display: inline-block;
+    height: 160px;
+    min-height: 150px;
+    width: 80%;
+    border-radius: 8px;
+    font-size: 19px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+}
+
+.ranklist_btn {
+    color: white;
+    background-color: rgb(52, 52, 52);
+}
+
+.quiz_btn {
+    background-color: rgb(240, 240, 240);
+    color: rgb(41, 43, 44);
+}
+
+a[class=quiz_btn]:hover {
+    text-decoration: none;
+    color: black;
+}
+
+a[class=ranklist_btn]:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.textbox {
+    padding: 5px;
+}
+
+.textbox p:first-child {
+    font-weight: 700;
+}

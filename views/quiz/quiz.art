@@ -1,0 +1,291 @@
+{{extend '../common/layout.art'}} 
+
+{{block 'title'}}
+<title>答题页</title>
+{{/block}}
+
+{{block 'csslink'}}
+<!-- ↓sidebar tools base css 侧边栏小工具css↓ -->
+<link rel="stylesheet" href="./css/quiz_sidebartools.css">
+<!-- ↓counter tool css 计数器css↓ -->
+<link rel="stylesheet" href="./css/quiz_counter.css">
+<!-- 题目信息区css -->
+<link rel="stylesheet" href="./css/quiz_info.css"> 
+<!-- 上下页切换侧边栏css -->
+<link rel="stylesheet" href="./css/quiz_side_bar.css"> 
+<link rel="stylesheet" href="./css/quiz_border_base.css">
+{{/block}}
+
+{{block 'main'}}
+<!-- 主体区 -->
+    <div class="quiz_wrap">
+
+        <!-- 侧边栏工具 计数器和计时器 -->
+        <div class="side_bar container-fluid">
+            <!-- 侧边栏 -->
+            <div class="row">
+                <!-- 计时器 -->
+                <div class="quiz_timer" id="quiz_timer">
+                    <div class="modal-content">
+                        <!-- 模态框标题 -->
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                            <h4 class="modal-title" id="myModalLabel">答题用时</h4>
+                        </div>
+                        <!-- 模态框主体内容 -->
+                        <div class="modal-body">
+                            <span id="t_m">00分</span><span>:</span><span id="t_s">00秒</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 计数器 -->
+                <div class="quiz_counter" id="quiz_counter">
+                    <div class="modal-content">
+                        <!-- 模态框标题 -->
+                        <div class="modal-header">
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                            <h4 class="modal-title" id="myModalLabel">题目计数器</h4>
+                            
+                        </div>
+                        <!-- 模态框主体内容 -->
+                        <div class="modal-body">
+
+                            <div class="container-fluid">
+                                <div class="row quiz_counter_row">
+                                    
+                                </div>
+                                <button type="button" class="btn btn-primary btn-sm active quiz_submit_btn" id="quiz_counter_submit">提交</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 循环20页 -->
+        {{each quiz value}}
+        <div class="quiz_page">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- 上一页 -->
+                    <div class="col-xs-1 left-side-bar">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </div>
+
+                    <!-- 题目内容区 -->
+                    <div class="col-sm-10">
+                        <div class="container-fluid quiz_body">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <div class="row">
+                                        <div class="col-sm-12 quiz_info ">
+                                            <div class="QA_order border_base"></div>
+                                            <div class="quiz_detail border_base" data-score="0" data-answer="{{value.answer}}">
+                                                学科领域:                                                {{if value.domain == 0}}
+                                                <span> 工业自动化</span>
+                                                {{else if value.domain == 1}}
+                                                <span> 农业自动化</span>
+                                                {{else if value.domain == 2}}
+                                                <span> 交通运输自动化</span>
+                                                {{else if value.domain == 3}}
+                                                <span> 办公自动化</span>
+                                                {{/if}} 
+                                                <br>
+                                                {{value.info}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid quiz_options">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <div class="row quiz_options_group">
+                                        <div class="col-sm-1 blank1"></div>
+                                        <div class="col-sm-5">
+                                            <div class="options_base" data-user-answer="0"><span>A.</span>
+                                                <p>{{value.option[0]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 blank2"></div>
+                                        <div class="col-sm-5">
+                                            <div class="options_base" data-user-answer="1"><span>B.</span>
+                                                <p>{{value.option[1]}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row quiz_options_group">
+                                        <div class="col-sm-1  blank1"></div>
+                                        <div class="col-sm-5">
+                                            <div class="options_base" data-user-answer="2"><span>C.</span>
+                                                <p>{{value.option[2]}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 blank2"></div>
+                                        <div class="col-sm-5">
+                                            <div class="options_base" data-user-answer="3"><span>D.</span>
+                                                <p>{{value.option[3]}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 下一页 -->
+                    <div class="col-sm-1 right-side-bar">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+<form action="/ranklist" method="post" id="user_form" hidden="hidden"> 
+    <label for="">用户昵称</label>
+    <input type="text" id="user_name" name="user_name">
+    <label for="">用户得分</label>
+    <input type="text" id="user_score" name="user_score">
+    <label for="">答题开始时间</label>
+    <input type="text" id="user_date" name="user_date">
+    <label for="">耗时</label>
+    <input type="text" id="user_time" name="user_time">
+    <input type="submit" value="提交按钮">
+</form>
+
+<!-- 录入信息模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- ↑模态框背景和淡入淡出动画↑ -->
+    <!-- 模态框主体区 -->
+    <div class="modal-dialog">
+
+        <!-- 模态框内容区 -->
+        <div class="modal-content">
+
+            <!-- 模态框标题 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">开始答题前请输入昵称</h4>
+            </div>
+
+            <!-- 模态框主体内容 -->
+            <div class="modal-body">
+                <label for="recipient-name" class="control-label">昵称</label>
+                <input type="text" class="form-control" id="recipient-name" placeholder="请输入昵称">
+                <h6><small>或直接确认以匿名身份开始答题</small></h6>
+            </div>
+
+            <!-- 模态框底部、按钮 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="start_quiz_timer" data-dismiss="modal">开始答题</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 第一页提醒模态框 -->
+<div class="modal fade" id="myModalAlertFirst" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- ↑模态框背景和淡入淡出动画↑ -->
+    <!-- 模态框主体区 -->
+    <div class="modal-dialog">
+
+        <!-- 模态框内容区 -->
+        <div class="modal-content">
+
+            <!-- 模态框标题 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+
+            <!-- 模态框主体内容 -->
+            <div class="modal-body">
+                <h4>已经是第一题了!</h4>
+            </div>
+
+            <!-- 模态框底部、按钮 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- 最后一页和提交提醒模态框 -->
+<div class="modal fade" id="myModalAlertLast" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- ↑模态框背景和淡入淡出动画↑ -->
+    <!-- 模态框主体区 -->
+    <div class="modal-dialog">
+
+        <!-- 模态框内容区 -->
+        <div class="modal-content">
+
+            <!-- 模态框标题 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+
+            <!-- 模态框主体内容 -->
+            <div class="modal-body">
+                <h4>要提交吗</h4>
+            </div>
+
+            <!-- 模态框底部、按钮 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="submit_your_answer" data-dismiss="modal">提交</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- 得分模态框 -->
+<div class="modal fade" id="myModalScore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- ↑模态框背景和淡入淡出动画↑ -->
+    <!-- 模态框主体区 -->
+    <div class="modal-dialog">
+
+        <!-- 模态框内容区 -->
+        <div class="modal-content">
+
+            <!-- 模态框标题 -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">恭喜你</h4>
+            </div>
+
+            <!-- 模态框主体内容 -->
+            <div class="modal-body">
+                <h4>你的分数是：</h4>
+                <h3 id="score"></h3>
+            </div>
+
+            <!-- 模态框底部、按钮 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">查看答题情况</button>
+                <a href="/ranklist"><button type="button" class="btn btn-default">排行榜</button></a>
+                <a href="javascript:;"><button type="button" class="btn btn-primary" id="submit_user">上传分数</button></a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{{/block}}
+
+{{block 'script'}}
+<!-- 答题页功能js -->
+<script src="./js/quiz_function.js"></script>
+<script src="./js/form.js"></script>
+<!-- 用户信息表单js -->
+{{/block}}
