@@ -45,6 +45,6 @@ $('#quiz_btn').click(function() {
     for (let i = 0; i < order.length; i++) {
         get_order += `qo=${order[i]}&`;
     }
-    $(this).attr('href', `http://127.0.0.1/quiz${get_order}`);
+    $(this).attr('href', `/quiz${get_order}`);
     console.log(get_order);
 })

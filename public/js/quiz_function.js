@@ -1,4 +1,5 @@
 var timer = null; //声明计时器全局变量
+$('#myModal').modal({ backdrop: 'static', keyboard: false }); //禁用模态框esc和点击其他区域关闭功能
 
 $(function() { //自动触发模态框
     $('#myModal').modal('show');

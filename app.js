@@ -28,5 +28,5 @@ app.use('/quiz', quiz);
 app.use('/ranklist', ranklist);
 
 //监听端口
-app.listen(80);
+app.listen(80, '127.0.0.1');
 console.log('启动成功');
