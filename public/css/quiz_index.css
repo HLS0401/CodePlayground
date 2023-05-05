@@ -8,7 +8,7 @@ body {
     padding-top: 51px;
     height: 100%;
     width: 100%;
-    background: url('https://storage.googleapis.com/stateless-d2c-io/2019/06/c4d02567-web-1920-%E2%80%93-13.jpg') no-repeat;
+    background: url('../image/c4d02567-web-1920-–-13.jpg') no-repeat;
     /* '../image/c4d02567-web-1920-–-13.jpg'  */
     background-position: top right;
 }
@@ -61,4 +61,12 @@ a[class=ranklist_btn]:hover {
 
 .textbox p:first-child {
     font-weight: 700;
+}
+
+.index-icon {
+    width: 100%;
+    height: 100%;
+    max-height: 120px;
+    max-width: 120px;
+    margin: 0 auto;
 }

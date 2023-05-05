@@ -24,7 +24,7 @@
                                         <p>开始答题</p>
                                         <p class="small">从不同领域中随机抽取题目</p>
                                     </div>
-                                    <div class="col-sm-5"><img src="https://storage.googleapis.com/stateless-d2c-io//2019/06/i2-1.svg" alt=""></div>
+                                    <div class="col-sm-5"><img class="index-icon" src="../image/paper.png" alt=""></div>
                                 </div>
                             </div>
                         </a>
@@ -35,7 +35,7 @@
                                         <p>排行榜</p>
                                         <p class="small">分数排名，记录了答题人的分数和用时</p>
                                     </div>
-                                    <div class="col-sm-5"><img src="https://storage.googleapis.com/stateless-d2c-io//2019/06/i3-1.svg" alt=""></div>
+                                    <div class="col-sm-5"><img class="index-icon" src="../image/list.png" alt=""></div>
                                 </div>
                             </div>
                         </a>
